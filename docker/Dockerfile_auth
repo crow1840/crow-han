@@ -1,0 +1,5 @@
+FROM golang:alpine
+MAINTAINER liubei
+WORKDIR /
+ADD bin/auth /auth
+ENTRYPOINT ["/auth"]

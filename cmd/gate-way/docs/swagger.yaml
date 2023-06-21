@@ -1,0 +1,16 @@
+basePath: /
+info:
+  contact:
+    email: 40010355@qq.com
+    name: 刘炜
+    url: https://blog.csdn.net/xingzuo_1840
+  termsOfService: http://127.0.0.1
+  title: crow-han
+  version: "1.0"
+paths: {}
+securityDefinitions:
+  Bearer:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

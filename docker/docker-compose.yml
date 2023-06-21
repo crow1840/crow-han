@@ -1,0 +1,43 @@
+version: "3"
+services:
+  crow_gateway:
+    image: crow/han-gateway
+    ports:
+      - 1840:1840
+    environment:
+      - CROW_MYSQL_IP=10.10.239.136
+      - CROW_MYSQL_PORT=3306
+      - CROW_MYSQL_DB_NAME=crow
+      - CROW_MYSQL_USER=root
+      - CROW_MYSQL_PASSWORD=1234
+      - CROW_RIDES_IP=10.10.239.136
+      - CROW_RIDES_PORT=6379
+      - CROW_RIDES_DB_NUM=2
+      - CROW_RIDES_PASSWORD=""
+    restart: always
+  crow_auth:
+    image: crow/han-auth
+    environment:
+      - CROW_MYSQL_IP=10.10.239.136
+      - CROW_MYSQL_PORT=3306
+      - CROW_MYSQL_DB_NAME=crow
+      - CROW_MYSQL_USER=root
+      - CROW_MYSQL_PASSWORD=1234
+      - CROW_RIDES_IP=10.10.239.136
+      - CROW_RIDES_PORT=6379
+      - CROW_RIDES_DB_NUM=2
+      - CROW_RIDES_PASSWORD=""
+    restart: always
+  crow_user:
+      image: crow/han-user
+      environment:
+        - CROW_MYSQL_IP=10.10.239.136
+        - CROW_MYSQL_PORT=3306
+        - CROW_MYSQL_DB_NAME=crow
+        - CROW_MYSQL_USER=root
+        - CROW_MYSQL_PASSWORD=1234
+        - CROW_RIDES_IP=10.10.239.136
+        - CROW_RIDES_PORT=6379
+        - CROW_RIDES_DB_NUM=2
+        - CROW_RIDES_PASSWORD=""
+      restart: always

@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+package auth;
+
+option go_package = "./proto/auth;auth";
+
+service Auth {
+	rpc Call(CallRequest) returns (CallResponse) {}
+//	rpc ClientStream(stream ClientStreamRequest) returns (ClientStreamResponse) {}
+//	rpc ServerStream(ServerStreamRequest) returns (stream ServerStreamResponse) {}
+//	rpc BidiStream(stream BidiStreamRequest) returns (stream BidiStreamResponse) {}
+	rpc Login(LoginRequest) returns (LoginResponse){}
+	rpc RefreshToken(RefreshTokenRequest) returns (RefreshTokenResponse){}
+	rpc Verify(VerifyRequest) returns (VerifyResponse){}
+
+}
+
+message CallRequest {
+	string name = 1;
+}
+
+message CallResponse {
+	string msg = 1;
+}
+
+message LoginRequest {
+	string UserName = 1;
+	string Password = 2;
+}
+
+message LoginResponse {
+	string token = 1;
+}
+
+message RefreshTokenRequest {
+	string token = 1;
+}
+
+message RefreshTokenResponse {
+	string newToken =1;
+}
+
+message VerifyRequest {
+	string token = 1;
+}
+
+message VerifyResponse {
+	bool result = 1;
+	int64 userId = 2;
+	string userName = 3;
+	string userRole = 4;
+}

@@ -1,0 +1,5 @@
+FROM golang:alpine
+MAINTAINER liubei
+WORKDIR /
+ADD bin/gate-way /gate-way
+ENTRYPOINT ["/gate-way"]

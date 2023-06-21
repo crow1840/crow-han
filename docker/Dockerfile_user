@@ -1,0 +1,5 @@
+FROM golang:alpine
+MAINTAINER liubei
+WORKDIR /
+ADD bin/user /user
+ENTRYPOINT ["/user"]
